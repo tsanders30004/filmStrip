@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="utf-8">
+     <title>Filmstrip</title>
+     <link href="../animate.css" rel="stylesheet">
+     <script src="../jquery.js"></script>
+     <style>
+     * {
+          box-sizing: border-box;
+     }
+     body {
+          font-family: Verdana;
+     }
+     .cell {
+          width: 16.666667%;
+          float: left;
+     }
+     .photo {
+          width: 100%;
+          padding: 5%;
+     }
+     .bigPhotoSpacer {
+          width: 15%;
+          float: left;
+     }
+     #bigPhotoContainer {
+          width: 70%;
+          float: left;
+     }
+     #bigPhoto {
+          box-shadow: 10px 10px 10px #CCCCCC;
+          width: 100%;
+          margin-top: 5%;
+     }
+     .hoverClass {
+          box-shadow: 5px 5px 5px #CCCCCC;
+          transform: scale(1.1);
+     }
+
+     </style>
+     <script>
+     $(document).ready(function(){
+          $('.photo').click(function(){                          /* when you click a thumbnail, show it in the big area below */
+               console.log('click occurred')
+               var imageFilename = $(this).attr('src');
+               console.log(imageFilename);
+$('#bigPhoto').removeClass("animated bounceInDown");
+               $('#bigPhoto').attr("src", imageFilename);
+
+               $('#bigPhoto').addClass("animated bounceInDown");
+
+          });
+
+          $('.photo').mouseover(function(){                          /* when you click a thumbnail, show it in the big area below */
+               console.log('hover occurred')
+               $(this).addClass('hoverClass');
+          });
+
+          $('.photo').mouseout(function(){                          /* when you click a thumbnail, show it in the big area below */
+               console.log('hover occurred')
+               $(this).removeClass('hoverClass');
+          });
+     });
+     </script>
+
+</head>
+<body>
+     <div class="container">
+          <div class="row">
+               <div class="cell">
+                    <img class="photo" src="photos/maarten05.png">
+               </div> <!-- cell -->
+               <div class="cell">
+                    <img class="photo" src="photos/maarten02.png">
+               </div> <!-- cell -->
+               <div class="cell">
+                    <img class="photo" src="photos/maarten03.png">
+               </div> <!-- cell -->
+               <div class="cell">
+                    <img class="photo" src="photos/DSC_3293.jpg">
+               </div> <!-- cell -->
+               <div class="cell">
+                    <img class="photo" src="photos/maarten01.png">
+               </div> <!-- cell -->
+               <div class="cell">
+                    <img class="photo" src="photos/maarten06.png">
+               </div> <!-- cell -->
+          </div> <!-- row -->
+          <div>
+               <div class="row">
+                    <div class="bigPhotoSpacer">
+                         &nbsp;
+                    </div>
+                    <div id="bigPhotoContainer">
+                         <img id="bigPhoto" src="photos/DSC_3544.jpg">
+                    </div>
+                    <div class="bigPhotoSpacer">
+                         &nbsp;
+                    </div>
+               </div>
+
+          </div>
+     </div>    <!-- container -->
+</body>
+</html>
