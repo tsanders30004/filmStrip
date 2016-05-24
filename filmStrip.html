@@ -64,6 +64,18 @@ $('#bigPhoto').removeClass("animated bounceInDown");
      });
      </script>
 
+     <script>
+     $.ajax({
+       method: 'GET',
+       url: 'https://api.github.com/users/tsanders30004/events',
+       dataType: 'json',
+       headers: {    "Authorization": "Basic YWlycG9ydHloOmZ1enp5bG9naWM=" },
+       success: function (data) {
+         console.log(data);
+       }
+     })
+     </script>
+
 </head>
 <body>
      <div class="container">
